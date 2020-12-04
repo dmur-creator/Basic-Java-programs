@@ -1,0 +1,42 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// Sep 1, 2020
+//
+/////////////////////////////////////////////////////////
+
+/* This program takes a user input sentence and displays 
+* it on one line in all caps, and then on another line
+* it displays it in all lowercase.*/
+
+// Importing class to obtain user input
+import java.util.Scanner;
+
+// Starting class "Main"
+public class Main {
+	public static void main(String[] args) {
+		
+		// Creating new scanner with variable name "scan" as explicit usage name.
+		Scanner scan = new Scanner(System.in);
+		
+		// Displays a promt to the user asking for a sentence to be typed.
+		System.out.println("Sentence?");
+		
+		// Scanning for user text input and setting variable "stringIn" to equal it. 
+		String stringIn = scan.nextLine();
+
+    /* Printf is used as a more condensed means to 
+    * set the user input text as all caps and all
+    * lower caps instead of .toUpper/lowerCase();*/
+    
+    // Displays user input in all caps.
+    System.out.printf("%S %n", stringIn);
+    
+    // Displays user input in all lower case/
+    System.out.printf("%s %n", stringIn);
+
+		// Closes scanner as it is no longer needed.
+		scan.close();
+	}
+
+}
