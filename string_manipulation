@@ -1,0 +1,40 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// Sep 1, 2020
+//
+/////////////////////////////////////////////////////////
+
+/* This program takes a user input string of five characters 
+* and displays the first two on one line and the last three 
+on the next line using a substing method. */
+
+// Importing class to obtain user input
+import java.util.Scanner;
+
+// Starting class "Main".
+class Main {
+  public static void main(String[] args) {
+   
+    // Creating new scanner with variable name "scan" as explicit usage name.   
+    Scanner scan = new Scanner(System.in);
+    
+    // Displaying promt for user to input five characters.
+    System.out.println("Five character string?");
+    
+    // Scanning for user numeric input
+    String fiveChar = scan.nextLine();
+    
+    // Using the original numeric input, this is taking the first two charaters and giving them a variable.
+    String charX = fiveChar.substring(0, 2);
+    
+    // Using the original numeric input, this is taking the last three charaters and giving them a variable.
+    String charY = fiveChar.substring(2,5);
+    
+    // Displaying both of the pervious variables on two serperate lines.
+    System.out.print(charX + "\n" + charY);
+    
+    // Closing scanner as it is no longer needed.
+    scan.close();
+  }
+}
