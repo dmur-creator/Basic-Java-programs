@@ -1,0 +1,61 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// Sep 1, 2020
+//
+/////////////////////////////////////////////////////////
+
+/* This program asks the user to input a number between 1 and 4
+* and then it displays that input number with a color that had been
+*associated with it using switch case.*/
+
+// Importing class to obtain user input
+import java.util.Scanner;
+
+// Starting class "Main".
+public class Main {
+	public static void main(String[] args) {
+		
+		// Creating and naming scanner "scan" as explicit name
+		Scanner scan = new Scanner(System.in);	
+
+    // Setting default variable value to 0.
+		int num = 0;
+		
+      // Displays text to user asking for number
+			System.out.println("Number?");
+			// Scanning for user number input. 
+			num = scan.nextInt();
+			
+				switch(num) {
+					// If input is 1, display text of color and number.
+					case 1 : 
+						System.out.println("1 is Cyan.");
+						break;
+					
+					// If input is 2, display text of color and number.
+					case 2 : 
+						System.out.println("2 is Magenta.");
+						break;
+					
+					// If input is 3, display text of color and number.
+					case 3 : 
+						System.out.println("3 is Yellow.");
+						break;
+					
+					// If input is 4, display text of color and number.
+					case 4 : 
+						System.out.print("4 is Black.");
+						break;
+					
+					// If input is not a number between 1 and 4, display error text.
+					default : 
+						System.out.println("That number is not valid.");
+						break;
+					
+					
+				}
+			// Closed scanner as it is no longer needed	
+			scan.close();
+		}
+	}
