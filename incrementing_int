@@ -1,0 +1,38 @@
+//////////////////////////////////////////
+//
+// Daniel Murphy
+// Sep 1, 2020
+//
+//////////////////////////////////////////
+
+/* This program asks the user to input a Number
+* and then figures out what number comes next 
+* and prints both the original number and the 
+* new number */
+
+// Importing class to obtain user input 
+import java.util.Scanner;
+
+// Opening class Main
+class Main {
+  public static void main(String[] args) {
+    
+    //Assinging Scanner variable "scan" as explicit to its function
+    Scanner scan = new Scanner(System.in);
+		
+		// Displays promt to user asking for input of number
+		System.out.println("Integer?");
+		
+		// Scanning for a numeric value to be entered by user
+		int num = scan.nextInt();
+		
+		// Closing scanner as it is no longer needed
+		scan.close();
+		
+		/* This displays text explaining what the orignial 
+		* user input was and also it displays the next 
+		* highest value for the original using "++". */
+		System.out.println("The integer you entered is " + num + ".");
+		System.out.println("The next integer is " + ++num + ".");
+  }
+}
