@@ -1,0 +1,44 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// Sep 3, 2020
+//
+/////////////////////////////////////////////////////////
+
+/* This program takes user input of a temperature in celsius
+ * and converts it to fahrenheit and then displays it. */
+
+// importing class to obtain user input
+import java.util.Scanner;
+
+// Opening class "Main" and defining the arguments 
+public class Main {
+	public static void main(String[] args) {
+		
+		// Creating variables to represent the two different temp. inputs and defining them as precise numerical data types. 
+		Double fahrenheit, celsius;
+		
+		// Defining scanner variable as "sc" as explicit name
+		Scanner sc = new Scanner(System.in);
+		
+		// Displaying text prompt to user asking for temperature input
+		System.out.println("Please enter temperature in celsius: ");
+		
+		// Scanning for user input 
+	  celsius = sc.nextDouble();
+		
+		// Closing scanner as it is no longer needed
+		sc.close();
+		
+		/* This calculates the conversion from the entered 
+		 * temperature which is in celsius to fahrenheit
+		 * by multiplying the input by 9, dividing by 5
+		 * and adding 32. */
+		fahrenheit =((celsius*9)/5)+32;
+		
+		// Displaying text with newly defined variable "fahrenheit" after conversion.
+		System.out.println("You entered " + celsius + " and the converted temperature in fahrenheit is " + fahrenheit);		
+		
+	}
+
+}
