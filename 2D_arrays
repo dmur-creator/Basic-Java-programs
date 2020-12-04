@@ -1,0 +1,106 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// CSC 160 Computer Science I
+// Nov 5, 2020
+// Magic Squares Using 2D Arrays
+//
+/////////////////////////////////////////////////////////
+
+/* This program uses 2d arrays to convert a .txt document 
+ * into 4x4 squares and tests if each row, column and diagonal
+ * equal the same ammount. At the end of the .txt, there is 
+ * -999 -999 -999 -999 which will make the porgram stop. */
+
+// NOTE I tried adding my own comments that were meaningful and still different from the original ones that you had, hopefuly they are different and sufficent enough! Any changes I need to make just email me and I will make them asap
+
+import java.io.File;
+import java.io.IOException;
+import java.util.Scanner;
+class Main
+{
+  public static void main(String[] args) throws IOException
+  {
+    File diskIn = new File("Lab8Data.txt"); // getting ints from .txt for 2D array assignment 
+    Scanner input = new Scanner(diskIn);
+    int[][] sqData = {{0,0,0,0},
+                      {0,0,0,0},
+                      {0,0,0,0},
+                      {0,0,0,0}};
+  
+    for(int y=0; y<4; y++)  // taking first row of numbers from txt file and assinging them to array positions
+      sqData[0][y] = input.nextInt();
+    while(sqData[0][0] != -999) // while loop shecking that the first row does not contain -999
+    {
+                    
+      for(int x=1; x<4; x++)  // Filling in the remainig squares with values  
+        for(int y=0; y<4; y++)
+          sqData[x][y] = input.nextInt();
+   
+      for(int x=0; x<4; x++)  // Displaying array in 4x4 grid in console  
+      {
+        for(int y=0; y<4; y++)
+          System.out.print(sqData[x][y] + "   ");
+        System.out.println();
+      }
+
+      int[] rowTot = {0,0,0,0};  // Finding the sum of the row and setting var. rowTot equal to value found
+      for(int x=0; x<4; x++)
+        for(int y=0; y<4; y++)
+          rowTot[x] += sqData[x][y];
+          
+
+      int[] colTot = {0,0,0,0}; // Finding the sum of the column and setting var. colTot equal to value found
+      for(int y=0; y<4; y++)
+        for(int x=0; x<4; x++)
+          colTot[y] += sqData[x][y];
+          
+  
+      int diagonalOne = 0; // Finding the sum of the two diagonals and setting var. diagonalOne and diagonalTwo equal to value found
+      for(int x=0; x<4; x++)
+        diagonalOne += sqData[x][x];
+        
+  
+      int diagonalTwo = 0;
+      int y=3;
+      for(int x=0; x<4; x++)
+      {
+        diagonalTwo += sqData[x][y];
+        y-=1;
+      }
+  
+  // Determining if all var. amounts are the same via boolean logic
+  
+    
+      int row = rowTot[0];
+      boolean rowIsOK = true;
+      for(int x=0; x<4; x++)
+        if(rowTot[x] != row)
+          rowIsOK = false;
+      
+      int col = colTot[0];
+      boolean colIsOK = true;
+      for (int x=0; x<4; x++)
+        if(rowTot[x] != col)
+          colIsOK = false;
+      
+      int diag = diagonalOne;
+      boolean diagIsOK = true;
+      if(diagonalTwo != diag)
+        diagIsOK = false;
+      
+      boolean squareIsAMagicSquare = false;  
+      if(rowIsOK && colIsOK && diagIsOK)
+        if(row == col && col == diag)
+          squareIsAMagicSquare = true;
+          
+      if(squareIsAMagicSquare)
+        System.out.println("Is a magic square");
+      else
+        System.out.println("NOT a magic square");
+      
+      for(int z=0; z<4; z++)  // Variable y is still active, so use z instead  
+        sqData[0][z] = input.nextInt();
+    }
+  }
+}
