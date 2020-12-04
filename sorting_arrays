@@ -1,0 +1,49 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// Oct 19, 2020
+//
+/////////////////////////////////////////////////////////
+
+/* This program takes a list of values, assigns them to 
+ * an array, displays the numbers and then finds the 
+ * samllest value and displayes it in the console. */
+
+import java.util.Arrays;  // Importing java class arrays
+public class Main { // Public class named Main
+	public static void main(String[] args) {  // Main method with no return type
+		int[] printNums = createArray();  // Getting values from stub return named createArray
+		int smallestNums = findSmallest(printNums); // Getting values from stub return named findSamllest
+
+		System.out.print("Integer values: "); // Displaying "integer values" in console 
+
+		for (int num : printNums) { // enhanced for loop used to assign printNums array element values to num so that only the integer values are displayed
+			System.out.print(num + " ");  // Displaying values attached to variable num
+		} // end for
+		
+		System.out.println("\nSmallest integer: " + smallestNums);  // Displaying "Smallest integer: " and the values of smallestNums
+		
+	} //end main
+
+public static int[] createArray() { // Stub with integer array return value named createArray. Used to create the array
+	int[] nums = new int[] {23,79,41,68,17,39,51,75,95,19}; // Inputing numbers 23,79,41,68,17,39,51,75,95,19 into elements of array named nums
+	return nums;  // returning nums
+	
+	} // end createArray
+
+public static int findSmallest(int [] nums) { // Stub with integer return type, this stub finds the smallest integer of the array, so the name of the stub is findSmallest
+	
+	int smallestNumber = nums[0]; // int variable smallestNumber equals the first value of array element nums[0]
+	/* for loop is used to check each value of the
+	 * array. It loops for the length if the array
+	 * and checks if nums[i] equals less then the
+	 * next value, if so the amount is now assigned
+	 * to nums[i]. Setting smallestNumber equal to
+	 * nums[i] so that the return value is a integer. */
+	for (int i = 1; i < nums.length; i++) {
+		if (nums[i] < smallestNumber)
+			smallestNumber = nums[i];
+		} // end for loop
+	return smallestNumber;  // returning smallestNumber int
+	} // end smallestNumber
+} // end public class Main
