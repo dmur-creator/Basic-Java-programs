@@ -1,0 +1,70 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// Oct 22, 2020 
+//
+/////////////////////////////////////////////////////////
+
+/* This program reads a txt doc that has five names and 
+ * five sets of numbers. It then displays each name with
+ * its respective number, left justified in lines of 19
+ * characters. Any space that is not used up by the names
+ * or numbers are filled with dots. Then the total of the
+ * numbers is found and displayed similarly. */
+
+import java.io.*;	// importing all .io and .util classes
+import java.util.*;
+
+public class Main {
+	public static void main(String[] args) throws Exception {
+		String header = displayHeader();	// calling method displayHeader return value
+		System.out.println(header);	
+		String body = displayBody();	// calling method displayBody return value
+		String footer = displayFooter();	// calling method displayFooter return value
+		System.out.print(footer + body);
+	}
+
+	public static String displayHeader() {
+		String header = "Sales Report \nName..........Amount\n";	// Formating return string
+		return header;
+	}
+
+	public static String displayBody() 
+			throws FileNotFoundException
+	{
+		File labData = new File("Lab6Data.txt");	// txt doc location
+		Scanner dataReader = new Scanner(labData);
+		int totalCost = 0;
+		while(dataReader.hasNext()){ // reading each line of the txt doc and assigning it to a variable
+			String name = dataReader.nextLine();
+			String strCost =  dataReader.nextLine();
+			if(name.equals("quit")) {
+				break;
+			}
+			int cost = Integer.parseInt(strCost);	// converting string to int as that the numerical values can be added
+			String output = String.format("%-13s %,d%n", name ,cost).replace(' ', '.');	// formatting string to be left justified, numbers have commas after three place values, char limit is set to 13 and blank spaces are replaced with dots
+			System.out.println(output);
+			totalCost += cost;	// finding total sum of the numbers
+		}
+		String totalCostComma = String.format ("%,d", totalCost);	// formatting totalCost number to have a comma after three place values
+		return totalCostComma;
+	}
+
+	public static String displayFooter() {
+		String total = "Total........";	// creating return for displayFooter
+		return total;
+	}
+}
+
+//put this into txt to be read
+
+Abbot
+2685
+Coswell
+1745
+Freedwick
+6283
+Gibson
+5453
+quit
+0
