@@ -1,0 +1,42 @@
+/////////////////////////////////////////////////////////
+//
+// Daniel Murphy
+// Sep 1, 2020
+//
+/////////////////////////////////////////////////////////
+
+/* This program asks user for their name and number of classes 
+* they are taking, then displays the answer */
+
+
+// importing class to obtain user input
+import java.util.Scanner;
+
+// Using class Main
+public class Main {
+  public static void main(String[] args) {
+		  
+		  // Giving scanner variable explicit name "userinput" 
+	    Scanner userinput = new Scanner(System.in);
+	    
+      // Displays promt asking for users name
+	    System.out.println("Name?");
+
+	    // string input line
+	    String name = userinput.nextLine();
+	   
+      // Displays promt asking user number of classes taken
+	    System.out.println("How many classes?");
+	    
+	    // numeric input line
+	    int classnum = userinput.nextInt();
+	    
+	    // Closing scanner as it is no longer needed
+	       userinput.close();	
+
+      // Displays text, user input name, classes, suer input number.
+	    System.out.println("Your name is " + name + " and you are in " + classnum + " classes." );
+
+	}
+
+}
